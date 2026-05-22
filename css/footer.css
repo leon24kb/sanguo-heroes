@@ -1,0 +1,27 @@
+/* 三国群英传 - 页脚 */
+#app-footer {
+    text-align: center;
+    padding: 40px 20px 30px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.footer-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--淡墨灰), transparent);
+    margin: 0 auto 16px;
+}
+
+.footer-text {
+    font-family: var(--font-title);
+    font-size: 16px;
+    color: var(--淡墨灰);
+    margin-bottom: 4px;
+}
+
+.footer-sub {
+    font-size: 12px;
+    color: var(--淡墨灰);
+    opacity: 0.7;
+}

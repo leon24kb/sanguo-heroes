@@ -1,0 +1,211 @@
+/* 三国群英传 - 卡片背面详情弹窗样式 */
+
+/* ==================== 弹窗容器（统一尺寸） ==================== */
+.detail-modal {
+    width: var(--modal-width);
+    max-width: var(--modal-max-width);
+    max-height: 85vh;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: var(--card-border);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: modalIn 0.3s ease;
+}
+
+/* ==================== 顶部信息区 ==================== */
+.detail-header {
+    padding: 20px 28px;
+    background: linear-gradient(135deg, var(--势力色), transparent);
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-name-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.detail-name {
+    font-family: var(--font-title);
+    font-size: 32px;
+    color: var(--水墨黑);
+}
+
+.detail-courtesy {
+    font-size: 16px;
+    color: var(--淡墨灰);
+}
+
+.detail-info-row {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--淡墨灰);
+    flex-wrap: wrap;
+}
+
+.detail-info-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ==================== 生平时迹区 ==================== */
+.detail-story {
+    flex: 1;
+    padding: 20px 28px;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.detail-section-title {
+    font-size: 16px;
+    color: var(--淡墨灰);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-title);
+}
+
+.detail-story-text {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--水墨黑);
+    text-align: justify;
+}
+
+.detail-story-text ruby rt {
+    font-size: 10px;
+    color: var(--淡墨灰);
+}
+
+/* ==================== 结局区 ==================== */
+.detail-ending {
+    padding: 16px 28px;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.detail-ending-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--水墨黑);
+}
+
+/* ==================== 经典台词区 ==================== */
+.detail-quote {
+    padding: 16px 28px;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--淡墨灰);
+    border-left: 3px solid var(--朱砂印);
+    margin: 0 28px;
+    padding-left: 16px;
+    line-height: 1.7;
+}
+
+.detail-quote ruby rt {
+    font-size: 10px;
+    color: var(--淡墨灰);
+}
+
+/* ==================== 底部区 ==================== */
+.detail-footer {
+    padding: 12px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.perfect-seal {
+    padding: 6px 18px;
+    background: linear-gradient(135deg, #DAA520, #FFD700);
+    color: #5a3e00;
+    border-radius: 6px;
+    font-family: var(--font-title);
+    font-size: 16px;
+    font-style: normal;
+}
+
+.detail-close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--淡墨灰);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.detail-close:hover {
+    border-color: var(--朱砂印);
+    color: var(--朱砂印);
+}
+
+/* 重复挑战按钮 */
+.detail-retry-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--淡墨灰);
+    font-family: var(--font-body);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-right: auto;
+}
+
+.detail-retry-btn:hover {
+    border-color: var(--朱砂印);
+    color: var(--朱砂印);
+    background: rgba(178,34,34,0.05);
+}
+
+/* ==================== 锁定状态 ==================== */
+.detail-locked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--淡墨灰);
+    font-size: 18px;
+    gap: 12px;
+}
+
+.detail-locked-icon {
+    font-size: 64px;
+    opacity: 0.5;
+}
+
+/* ==================== 手机端适配 ==================== */
+@media (max-width: 768px) {
+    .detail-modal {
+        width: 95vw;
+    }
+    .detail-header { padding: 16px 20px; }
+    .detail-name { font-size: 22px; }
+    .detail-story { padding: 16px 20px; }
+    .detail-story-text { font-size: 14px; }
+    .detail-ending { padding: 12px 20px; }
+    .detail-quote { padding: 12px 20px; margin: 0 20px; font-size: 14px; }
+    .detail-footer { padding: 10px 20px; }
+}

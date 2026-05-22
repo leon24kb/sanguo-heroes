@@ -1,0 +1,189 @@
+/* 三国群英传 - 水墨丹青主题 */
+:root {
+    --水墨黑: #1a1a1a;
+    --淡墨灰: #6B6B6B;
+    --朱砂印: #B22222;
+    --留白: #F8F8F8;
+    --远山青: #7B8B6F;
+    --card-bg: rgba(255,255,255,0.92);
+    --border-color: #E0E0E0;
+
+    --魏灰: #4A5568;
+    --蜀青: #5A6B5A;
+    --吴赭: #7B5A5A;
+    --群褐: #6B5A4A;
+
+    --card-width: 280px;
+    --card-height: 420px;
+    --card-border: 1px solid var(--border-color);
+    --card-radius: 12px;
+    --card-shadow: 0 8px 24px rgba(0,0,0,0.12);
+
+    --font-title: 'Ma Shan Zheng', cursive;
+    --font-body: 'Noto Serif SC', serif;
+
+    --progress-height: 28px;
+    --progress-bg: #E0E0E0;
+    --progress-fill: var(--朱砂印);
+    --progress-text-color: var(--朱砂印);
+
+    --seal-bg: var(--朱砂印);
+    --seal-text: #FFFFFF;
+    --seal-size: 40px;
+    --seal-radius: 50%;
+
+    /* 统一弹窗尺寸 */
+    --modal-width: 75vw;
+    --modal-max-width: 1000px;
+}
+
+body.dark-mode {
+    --留白: #1a1a1a;
+    --水墨黑: #e0e0e0;
+    --淡墨灰: #999;
+    --card-bg: #2a2a2a;
+    --border-color: #333;
+    --progress-bg: #333;
+    --远山青: #4a5a4a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overscroll-behavior-y: contain;
+}
+
+body {
+    font-family: var(--font-body);
+    background: linear-gradient(180deg, #F0F8FA 0%, #E0F0F5 30%, #B8D4E3 70%, #9EC4D8 100%);
+    color: var(--水墨黑);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-title);
+    font-weight: normal;
+}
+
+/* 水墨青绿背景 - 山峦云雾效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        /* 远山层叠 */
+        linear-gradient(180deg, transparent 60%, rgba(100,149,237,0.15) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 山峦剪影层 */
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, transparent 0%, rgba(70,130,180,0.12) 100%);
+    clip-path: polygon(0% 100%, 0% 70%, 15% 55%, 30% 70%, 45% 50%, 60% 65%, 75% 45%, 90% 60%, 100% 50%, 100% 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--淡墨灰);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--朱砂印);
+}
+
+/* 统一弹窗面板 */
+.modal-panel {
+    width: var(--modal-width);
+    max-width: var(--modal-max-width);
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 32px;
+    animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ==================== 回到顶部按钮 ==================== */
+.back-to-top {
+    position: fixed;
+    bottom: 98px;
+    right: 32px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.95);
+    color: #2C5F7C;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(44,95,124,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    touch-action: manipulation;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: #2C5F7C;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* 手机端回到顶部按钮适配 */
+@media (max-width: 480px) {
+    .back-to-top {
+        bottom: 78px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+/* 手机端弹窗自适应 */
+@media (max-width: 768px) {
+    .modal-panel {
+        width: 95vw;
+        padding: 20px;
+    }
+}
